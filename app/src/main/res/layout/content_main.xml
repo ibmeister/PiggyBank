@@ -30,7 +30,7 @@
             android:id="@+id/button_test"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:text="Test transaction"
+            android:text="@string/select_payment_system"
             android:layout_below="@+id/color"
             android:layout_alignLeft="@id/color"
             />

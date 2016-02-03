@@ -18,6 +18,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="TXBMlg53uZuK69t4mQgMffTbV3vH5e7Ukm6LObWv" />
+        <meta-data
+            android:name="com.parse.CLIENT_KEY"
+            android:value="dnSp2SwIkvOHyJ24yqwGt3nFtGd6sy4IG8jFwOgN" />
+
     </application>
 
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
 </manifest>
+

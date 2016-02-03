@@ -1,6 +1,5 @@
 package ibmeister.com.piggybank;
 
-import android.media.session.MediaSession;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,11 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import com.stripe.android.Stripe;
-import com.stripe.android.TokenCallback;
-import com.stripe.android.model.Card;
+import com.parse.Parse;
+import com.parse.ParseObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +29,18 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this);
+
+        ParseObject testClass = new ParseObject("testClass");
+        testClass.put("foo", "bar");
+        testClass.put("moo", "bar");
+        testClass.put("foo", "lar");
+        testClass.put("get", "rekt");
+        testClass.put("foo", "foo bar");
+
+        testClass.saveInBackground();
     }
 
     @Override
@@ -56,28 +65,5 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    public void goToSo (View view) {
-        Card card = new Card("4242-4242-4242-4242", 12, 2010, "123");
-        Stripe stripe = new Stripe("pk_test_eZBW13os3271WgGqZNN74OgI");
-        stripe.createToken(
-                card,
-                new TokenCallback() {
-                    public void onSuccess(MediaSession.Token token) {
-                        // Send token to your server
-                    }
-                    public void onError(Exception error) {
-                        // Show localized error message
-                        Toast.makeText(getContext(),
-                                error.getLocalizedString(getContext()),
-                                Toast.LENGTH_LONG
-                        ).show();
-                    }
-
-
-
-                    boolean numberValidation = card.validateNumber();
-        boolean cvcValidation = card.validateCVC();
-    }
 
 }
