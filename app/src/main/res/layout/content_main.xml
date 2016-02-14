@@ -22,19 +22,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SAVE MONEY"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="242dp"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true" />
 
-        <Button
-            android:id="@+id/button_test"
+    <Button
+            android:id="@+id/select_payment_button"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="@string/select_payment_system"
             android:layout_below="@+id/payment_method"
             android:layout_alignLeft="@id/payment_method"
-            android:onClick="onClickChoosePaymentMethod"
-            />
+            android:onClick="onClickChoosePaymentMethod" />
 
     <Spinner
         android:id="@+id/payment_method"
@@ -43,10 +42,15 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="97dp"
-        android:entries="@array/payment_types"
+        android:entries="@array/payment_types" />
 
-
-        />
-
+    <TextView
+        android:id="@+id/cards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/select_payment_button"
+        android:layout_marginTop="18dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/cards" />
 
 </RelativeLayout>
